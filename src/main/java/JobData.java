@@ -94,8 +94,19 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
+        ArrayList<HashMap<String, String>> jobSearch = new ArrayList<>();
+
         // TODO - implement this method
-        return null;
+        for(HashMap<String, String> jobSet : allJobs){
+            for(String valueSet : jobSet.values()){
+                if(valueSet.toUpperCase().contains(value.toUpperCase())){
+                    if(!jobSearch.contains(jobSet)){
+                        jobSearch.add(jobSet);
+                    }
+                }
+            }
+        }
+        return jobSearch;
     }
 
     /**
